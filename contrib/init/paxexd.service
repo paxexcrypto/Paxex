@@ -1,0 +1,26 @@
+[Unit]
+Description=Paxex's distributed currency daemon
+After=network.target
+
+[Service]
+User=paxex
+Group=paxex
+
+Type=forking
+PIDFile=/var/lib/paxexd/paxexd.pid
+
+ExecStart=/usr/bin/paxexd -daemon -pid=/var/lib/paxexd/paxexd.pid \
+          -conf=/etc/paxex/paxex.conf -datadir=/var/lib/paxexd
+
+ExecStop=-/usr/bin/paxex-cli -conf=/etc/paxex/paxex.conf \
+         -datadir=/var/lib/paxexd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Northern
-Comment=Northern P2P Cryptocurrency
-Exec=northern-qt %u
+Name=Paxex
+Comment=Paxex P2P Cryptocurrency
+Exec=paxex-qt %u
 Terminal=false
 Type=Application
-Icon=northern128
-MimeType=x-scheme-handler/northern;
+Icon=paxex128
+MimeType=x-scheme-handler/paxex;
 Categories=Office;Finance;
-Name[en_US]=northern-qt.desktop
+Name[en_US]=paxex-qt.desktop

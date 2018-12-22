@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: northernd.service
-Upstart: northernd.conf
-OpenRC:  northernd.openrc
-         northernd.openrcconf
-CentOS:  northernd.init
+SystemD: paxexd.service
+Upstart: paxexd.conf
+OpenRC:  paxexd.openrc
+         paxexd.openrcconf
+CentOS:  paxexd.init
 
 have been made available to assist packagers in creating node packages here.
 

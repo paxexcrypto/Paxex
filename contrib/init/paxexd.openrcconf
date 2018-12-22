@@ -1,0 +1,26 @@
+# /etc/conf.d/paxexd: config file for /etc/init.d/paxexd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/paxex/paxex.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/paxexd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/paxexd.pid"
+
+# Where to write paxexd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/paxexd"
+
+# User and group to own paxexd process
+#BITCOIND_USER="paxex"
+#BITCOIND_GROUP="paxex"
+
+# Path to paxexd executable
+#BITCOIND_BIN="/usr/bin/paxexd"
+
+# Nice value to run paxexd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

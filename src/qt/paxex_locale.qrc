@@ -1,0 +1,29 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/paxex_bg.qm</file>
+        <file alias="ca">locale/paxex_ca.qm</file>
+        <file alias="cs">locale/paxex_cs.qm</file>
+        <file alias="da">locale/paxex_da.qm</file>
+        <file alias="de">locale/paxex_de.qm</file>
+        <file alias="en">locale/paxex_en.qm</file>
+        <file alias="en_US">locale/paxex_en_US.qm</file>
+        <file alias="es">locale/paxex_es.qm</file>
+        <file alias="fi">locale/paxex_fi.qm</file>
+        <file alias="fr_FR">locale/paxex_fr_FR.qm</file>
+        <file alias="it">locale/paxex_it.qm</file>
+        <file alias="ja">locale/paxex_ja.qm</file>
+        <file alias="ko_KR">locale/paxex_ko_KR.qm</file>
+        <file alias="nl">locale/paxex_nl.qm</file>
+        <file alias="pl">locale/paxex_pl.qm</file>
+        <file alias="pt">locale/paxex_pt.qm</file>
+        <file alias="pt_BR">locale/paxex_pt_BR.qm</file>
+        <file alias="ro_RO">locale/paxex_ro_RO.qm</file>
+        <file alias="ru">locale/paxex_ru.qm</file>
+        <file alias="sk">locale/paxex_sk.qm</file>
+        <file alias="sv">locale/paxex_sv.qm</file>
+        <file alias="tr">locale/paxex_tr.qm</file>
+        <file alias="uk">locale/paxex_uk.qm</file>
+        <file alias="zh_CN">locale/paxex_zh_CN.qm</file>
+        <file alias="zh_TW">locale/paxex_zh_TW.qm</file>
+    </qresource>
+</RCC>

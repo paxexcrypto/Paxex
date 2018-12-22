@@ -72,15 +72,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += northernd
+  bin_PROGRAMS += paxexd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += northern-cli northern-tx
+  bin_PROGRAMS += paxex-cli paxex-tx
 endif
 
 .PHONY: FORCE
-# northern core #
+# paxex core #
 BITCOIN_CORE_H = \
   bignum.h \
   activemasternode.h \
@@ -183,7 +183,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between northernd and northern-qt
+# server: shared between paxexd and paxex-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -228,7 +228,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between northernd and northern-qt, but only linked
+# wallet: shared between paxexd and paxex-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -290,7 +290,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sph_skein.h \
   crypto/sph_types.h
 
-# common: shared between northernd, and northern-qt and non-server tools
+# common: shared between paxexd, and paxex-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -348,7 +348,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between northern-cli and northern-qt
+# cli: shared between paxex-cli and paxex-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -358,7 +358,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-northernd_LDADD = \
+paxexd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -369,26 +369,26 @@ northernd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-northernd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+paxexd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-northernd_LDADD += libbitcoin_wallet.a
+paxexd_LDADD += libbitcoin_wallet.a
 endif
-northernd_SOURCES = northernd.cpp
+paxexd_SOURCES = paxexd.cpp
 #
 
 if TARGET_WINDOWS
-northernd_SOURCES += northernd-res.rc
+paxexd_SOURCES += paxexd-res.rc
 endif
 
-northernd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-northernd_CPPFLAGS = $(BITCOIN_INCLUDES)
-northernd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+paxexd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+paxexd_CPPFLAGS = $(BITCOIN_INCLUDES)
+paxexd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# northern-cli binary #
-northern_cli_LDADD = \
+# paxex-cli binary #
+paxex_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
@@ -397,14 +397,14 @@ northern_cli_LDADD = \
   $(CRYPTO_LIBS) \
   $(EVENT_LIBS)
 
-northern_cli_SOURCES = \
-  northern-cli.cpp
+paxex_cli_SOURCES = \
+  paxex-cli.cpp
 
-northern_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+paxex_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 #
 
-# northern-tx binary #
-northern_tx_LDADD = \
+# paxex-tx binary #
+paxex_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -413,15 +413,15 @@ northern_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-northern_tx_SOURCES = northern-tx.cpp
-northern_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+paxex_tx_SOURCES = paxex-tx.cpp
+paxex_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-northern_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+paxex_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-northern_cli_SOURCES += northern-cli-res.rc
+paxex_cli_SOURCES += paxex-cli-res.rc
 endif
-northern_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+paxex_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

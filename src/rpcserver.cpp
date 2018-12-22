@@ -242,10 +242,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Northern server.");
+            "\nStop Paxex server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Northern server stopping";
+    return "Paxex server stopping";
 }
 
 
@@ -327,33 +327,33 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Northern features */
-        {"northern", "masternode", &masternode, true, true, false},
-        {"northern", "listmasternodes", &listmasternodes, true, true, false},
-        {"northern", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"northern", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"northern", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"northern", "masternodedebug", &masternodedebug, true, true, false},
-        {"northern", "startmasternode", &startmasternode, true, true, false},
-        {"northern", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"northern", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"northern", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"northern", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"northern", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"northern", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"northern", "mnbudget", &mnbudget, true, true, false},
-        {"northern", "preparebudget", &preparebudget, true, true, false},
-        {"northern", "submitbudget", &submitbudget, true, true, false},
-        {"northern", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"northern", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"northern", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"northern", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"northern", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"northern", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"northern", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"northern", "checkbudgets", &checkbudgets, true, true, false},
-        {"northern", "mnsync", &mnsync, true, true, false},
-        {"northern", "spork", &spork, true, true, false},
+        /* Paxex features */
+        {"paxex", "masternode", &masternode, true, true, false},
+        {"paxex", "listmasternodes", &listmasternodes, true, true, false},
+        {"paxex", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"paxex", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"paxex", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"paxex", "masternodedebug", &masternodedebug, true, true, false},
+        {"paxex", "startmasternode", &startmasternode, true, true, false},
+        {"paxex", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"paxex", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"paxex", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"paxex", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"paxex", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"paxex", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"paxex", "mnbudget", &mnbudget, true, true, false},
+        {"paxex", "preparebudget", &preparebudget, true, true, false},
+        {"paxex", "submitbudget", &submitbudget, true, true, false},
+        {"paxex", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"paxex", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"paxex", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"paxex", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"paxex", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"paxex", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"paxex", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"paxex", "checkbudgets", &checkbudgets, true, true, false},
+        {"paxex", "mnsync", &mnsync, true, true, false},
+        {"paxex", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
 
         /* Wallet */
@@ -1070,14 +1070,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> northern-cli " + methodname + " " + args + "\n";
+    return "> paxex-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:1012/\n";
 }
 
 const CRPCTable tableRPC;
