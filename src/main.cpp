@@ -1624,21 +1624,15 @@ int64_t GetBlockValue(int nHeight)
     }
 
     if (nHeight < Params().LAST_POW_BLOCK())
-        nSubsidy = 10000 * COIN;
-    else if (nHeight <= 30000)
-        nSubsidy = 5 * COIN;
-    else if (nHeight > 30000 && nHeight <= 200000)
-        nSubsidy = 3.75 * COIN;
-    else if (nHeight > 200000 && nHeight <= 500000)
-        nSubsidy = 2.5 * COIN;
-    else if (nHeight > 500000 && nHeight <= 900000)
-        nSubsidy = 1.25 * COIN;
-    else if (nHeight > 900000 && nHeight <= 1500000)
-        nSubsidy = 0.5 * COIN;
-    else if (nHeight > 1500000 && nHeight <= 6000000)
-        nSubsidy = 0.25 * COIN;
+        nSubsidy = 125000 * COIN;
+    else if (nHeight <= 1306200)
+        nSubsidy = 18 * COIN;
+    else if (nHeight > 1306200 && nHeight <= 2357400)
+        nSubsidy = 8.5 * COIN;
+    else if (nHeight > 2357400 && nHeight <= 3408600)
+        nSubsidy = 4.25 * COIN;
     else
-        nSubsidy = 0.125 * COIN;
+        nSubsidy = 2.12 * COIN;
 
     // Check if we reached the coin max supply.
     int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
@@ -1660,8 +1654,14 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     if (nHeight < Params().LAST_POW_BLOCK() || blockValue == 0)
         return 0;
 
-    // Check if we reached coin supply
-    ret = blockValue * 0.85; // 85% of block reward
+  else if (nHeight <= 1306200)
+        ret = 16;
+    else if (nHeight > 1306200 && nHeight <= 2357400)
+        ret = 8;
+    else if (nHeight > 2357400 && nHeight <= 3408600)
+        ret = 4;
+    else
+        ret = 2;
 
     return ret;
 }
@@ -1837,7 +1837,7 @@ bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsVi
 {
     
 	CBlockIndex* pindexPrev = mapBlockIndex.find(inputs.GetBestBlock())->second;
-	if (!tx.IsCoinBase() && pindexPrev->nHeight >= 270000) {
+	if (!tx.IsCoinBase()) {
         if (pvChecks)
             pvChecks->reserve(tx.vin.size());
 
@@ -1873,18 +1873,18 @@ bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsVi
         }
 
         if (!tx.IsCoinStake()) {
-             if (nValueIn < tx.GetValueOut() && pindexPrev->nHeight >= 270000)
+             if (nValueIn < tx.GetValueOut())
                 return state.DoS(100, error("CheckInputs() : %s value in (%s) < value out (%s)",
                                           tx.GetHash().ToString(), FormatMoney(nValueIn), FormatMoney(tx.GetValueOut())),
                      REJECT_INVALID, "bad-txns-in-belowout");
 
              
             CAmount nTxFee = nValueIn - tx.GetValueOut();
-            if (nTxFee < 0 && pindexPrev->nHeight >= 270000)
+            if (nTxFee < 0)
                 return state.DoS(100, error("CheckInputs() : %s nTxFee < 0", tx.GetHash().ToString()),
                     REJECT_INVALID, "bad-txns-fee-negative");
             nFees += nTxFee;
-            if (!MoneyRange(nFees) && pindexPrev->nHeight >= 270000)
+            if (!MoneyRange(nFees))
                 return state.DoS(100, error("CheckInputs() : nFees out of range"),
                     REJECT_INVALID, "bad-txns-fee-outofrange");
         }

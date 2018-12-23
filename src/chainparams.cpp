@@ -42,11 +42,11 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000001e1a5a4257154c65b46fc732bfa637ba7a898525373ba32ec4aa79921dd"));
+    (0, uint256("0x000008138015779a7f7d6a74b2bcf296ebbb096513e7c07c500fb007436604a7"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1526928414, // * UNIX timestamp of last checkpoint block
+    1545523699, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -76,10 +76,10 @@ public:
     {
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
-        pchMessageStart[0] = 0x52;
-        pchMessageStart[1] = 0xdb;
-        pchMessageStart[2] = 0x11;
-        pchMessageStart[3] = 0xab;
+        pchMessageStart[0] = 0x21;
+        pchMessageStart[1] = 0xbd;
+        pchMessageStart[2] = 0x12;
+        pchMessageStart[3] = 0xac;
         vAlertPubKey = ParseHex("045ad6f1551c2367f81c0ecb4d45d088298442887645a314dfcba3039401872473b0200e69d9679a0d7cc307fb9aaaacafb0cebc18050ce7c995fa19c6accc8415");
         nDefaultPort = 1011;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
@@ -89,15 +89,15 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 2 * 60; 
-        nTargetSpacing = 2 * 60;  // Paxex: 2 minute blocks during POW (block 1-200)
+        nTargetTimespan = 1 * 60; 
+        nTargetSpacing = 1 * 60;  // Paxex: 2 minute blocks during POW (block 1-200)
         nMaturity = 5; // 6 block maturity (+1 elsewhere)
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 5000000 * COIN; // 5 million max supply
+        nMaxMoneyOut = 100000000 * COIN; // 100 million max supply
         nLastPOWBlock = 200;
         nModifierUpdateBlock = 1; // we use the version 2 for PAXEX
 
-        const char* pszTimestamp = "Bitcoin now uses as much energy as Ireland - businessgreen 21/05/2018";
+        const char* pszTimestamp = "Paxex 2.0 has launched! - zabtc 23/12/2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -108,16 +108,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1526928414;
+        genesis.nTime = 1545523699;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 21561793;
+        genesis.nNonce = 22147339;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000001e1a5a4257154c65b46fc732bfa637ba7a898525373ba32ec4aa79921dd"));
-        assert(genesis.hashMerkleRoot == uint256("0xd611ad6808864e0e9bd331f3ffa2298c9e13a54d9fe59a99ccb3a75db374b7c9"));
+        assert(hashGenesisBlock == uint256("0x000008138015779a7f7d6a74b2bcf296ebbb096513e7c07c500fb007436604a7"));
+        assert(genesis.hashMerkleRoot == uint256("0x2ddfbf593a8c76bd07595e392c8e843aeb70f1708359541ff2cb4cdf1012d69f"));
 
-        // Paxex addresses start with 'N'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 53);
+        // Paxex addresses start with 'p'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 117);
         // Paxex script addresses start with '3'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 6);
         // Paxex private keys start with 'K'
@@ -143,7 +143,7 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "04cc17389379a0e323f53ea504d38cd71f43dc22f597805fed33a51b05ced1a3ae0db84089985f351b3737721736a82f58c8bd529f79c8ffe57e922bda792146ab";
-        strMasternodePoolDummyAddress = "NSJVWUkt6HtSCY2SaJ2akeyJUg8bg1hW3S";
+        strMasternodePoolDummyAddress = "pSJVWUkt6HtSCY2SaJ2akeyJUg8bg1hW3S";
         nStartMasternodePayments = 4070908800; 
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
