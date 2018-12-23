@@ -114,7 +114,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x000008138015779a7f7d6a74b2bcf296ebbb096513e7c07c500fb007436604a7"));
-        assert(genesis.hashMerkleRoot == uint256("0x2ddfbf593a8c76bd07595e392c8e843aeb70f1708359541ff2cb4cdf5556d69f"));
+        assert(genesis.hashMerkleRoot == uint256("0x2ddfbf593a8c76bd07595e392c8e843aeb70f1708359541ff2cb4cdf1012d69f"));
 
         // Paxex addresses start with 'p'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 117);
