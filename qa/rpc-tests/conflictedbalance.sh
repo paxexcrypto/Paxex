@@ -44,7 +44,7 @@ $BITCOIND $B1ARGS &
 B1PID=$!
 
 D2=${D}/node2
-CreateDataDir $D2 port=11010 rpcport=11011
+CreateDataDir $D2 port=11010 rpcport=15555
 B2ARGS="-datadir=$D2 -debug=mempool"
 $BITCOIND $B2ARGS &
 B2PID=$!

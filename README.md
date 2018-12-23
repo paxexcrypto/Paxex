@@ -18,8 +18,8 @@ Furthermore, as result of offering multiple ways for users to mint new PAXEX coi
 #### Algorithm: - *Quark-hash* 
 #### Masternode collateral - *2,500 PAXEX*  
 #### Features: - *SwiftTX, budget, treausury and masternode governance is enabled* 
-#### RPC Port: - *1012* 
-#### P2P Port: - *1011* 
+#### RPC Port: - *5556* 
+#### P2P Port: - *5555* 
 
 #
 

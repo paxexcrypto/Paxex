@@ -180,7 +180,7 @@ BOOST_AUTO_TEST_CASE(hmac_sha256_testvectors) {
                    "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
                    "dddddddddddddddddddddddddddddddddddd",
                    "773ea91e36800e46854db8ebd09181a72959098b3ef8c122d9635514ced565fe");
-    TestHMACSHA256("0102030405060708090a0b0c0d0e0f10111213141516171819",
+    TestHMACSHA256("0102030405060708090a0b0c0d0e0f55551213141516171819",
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
                    "82558a389a443c0ea4cc819899f2083a85f0faa3e578f8077a2e3ff46729665b");
@@ -220,7 +220,7 @@ BOOST_AUTO_TEST_CASE(hmac_sha512_testvectors) {
                    "dddddddddddddddddddddddddddddddddddd",
                    "fa73b0089d56a284efb0f0756c890be9b1b5dbdd8ee81a3655f83e33b2279d39"
                    "bf3e848279a722c806b485a47e67c807b946a337bee8942674278859e13292fb");
-    TestHMACSHA512("0102030405060708090a0b0c0d0e0f10111213141516171819",
+    TestHMACSHA512("0102030405060708090a0b0c0d0e0f55551213141516171819",
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
                    "b0ba465637458c6990e5a8c5f61d4af7e576d97ff94b872de76f8050361ee3db"
@@ -266,7 +266,7 @@ void TestRFC6979(const std::string& hexkey, const std::string& hexmsg, const std
 BOOST_AUTO_TEST_CASE(rfc6979_hmac_sha256)
 {
     TestRFC6979(
-        "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f00",
+        "0102030405060708090a0b0c0d0e0f555512131415161718191a1b1c1d1e1f00",
         "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
         boost::assign::list_of
             ("4fe29525b2086809159acdf0506efb86b0ec932c7ba44256ab321e421e67e9fb")

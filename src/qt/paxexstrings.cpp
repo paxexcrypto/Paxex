@@ -203,10 +203,10 @@ QT_TRANSLATE_NOOP("paxex-core", ""
 QT_TRANSLATE_NOOP("paxex-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("paxex-core", "(1011 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("paxex-core", "(5555 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("paxex-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("paxex-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("paxex-core", "(must be 1011 for mainnet)"),
+QT_TRANSLATE_NOOP("paxex-core", "(must be 5555 for mainnet)"),
 QT_TRANSLATE_NOOP("paxex-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("paxex-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("paxex-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
