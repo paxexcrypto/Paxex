@@ -1,22 +1,14 @@
 # Paxex Core integration/staging repository
 
-Paxex Core is a decentralized, peer-to-peer cryptocurrency with a primary focus on energy-efficiency and scalabilty. The Paxex Network makes use of only Proof-of-Stake mining, in the form of masternodes and staking. This means that the Paxex blockchain has a very low impact on the environment and ensures that scaling will be a smooth transition in future. 
-
-Furthermore, as result of offering multiple ways for users to mint new PAXEX coins, the network is a lot less centralized than some Proof-of-Work coins that have their hashrates dominated by one or two mining pools.
-
-### View the Paxex whitepaper here: 
-
-#### https://cdn.discordapp.com/attachments/416697792048922636/461555510496329728/Paxex-Whitepaper-v1.0.0.pdf
-
 ## Coin Specs
 
 #
 
 #### Block times: - *1 minute* 
-#### Maximum supply: - *5,000,000 (5 million) PAXEX*
-#### Consensus mechanism: - *Proof-of-Stake (85% masternodes, 15% stakers)*
+#### Maximum supply: - *100,000,000 (100 million) PAXEX*
+#### Consensus mechanism: - *Proof-of-Stake (Masternodes/Staking)*
 #### Algorithm: - *Quark-hash* 
-#### Masternode collateral - *2,500 PAXEX*  
+#### Masternode collateral - *50,000 PAXEX*  
 #### Features: - *SwiftTX, budget, treausury and masternode governance is enabled* 
 #### RPC Port: - *5556* 
 #### P2P Port: - *5555* 
@@ -25,22 +17,13 @@ Furthermore, as result of offering multiple ways for users to mint new PAXEX coi
 
 ### Block reward breakdown (Block height - Reward per block)
 #
-#### Block 201-30,000	  -   *5.000 PAXEX*
+#### Block 201-1,306,200	  -   *18.000 PAXEX*
 
-#### Block 30,001-200,000   -   *3.750 PAXEX*
+#### Block 1,306,201-2,357,400   -   *8.500 PAXEX*
 
-#### Block 200,001-500,000  -   *2.500 PAXEX*
+#### Block 2,357,401-3,408,600 -   *4.250 PAXEX*
 
-#### Block 500,001-900,000  -   *1.250 PAXEX*
-
-#### Block 900,001-1,500,000  -  *0.500 PAXEX*
-
-#### Block 1,500,001-6,000,000   -   *0.250 PAXEX*
-
-#### *11 year tapering inflation reward, with a cumulative supply capped at 5,000,000 PAXEX.*
+#### Block 3,408,601-Infinity  -   *2.120 PAXEX*
 
 #
-
-### More information at [https://paxex.network](https://paxex.network)
-### Join our [Discord!](https://discord.gg/9nzt37V)
 
