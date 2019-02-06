@@ -3454,13 +3454,13 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         }
 
         // if this is on a fork
-        if (!chainActive.Contains(pindexPrev) && last != NULL) {
+        if (!chainActive.Contains(pindexPrev) && pindexPrev != NULL) {
 
             // start at the block we're adding on to
             CBlockIndex *last = pindexPrev;
 
             // while that block is not on the main chain
-            while (!chainActive.Contains(last) && pindexPrev != NULL) {
+            while (!chainActive.Contains(last) && last != NULL) {
                 CBlock bl;
                 ReadBlockFromDisk(bl, last);
 
