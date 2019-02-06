@@ -3447,14 +3447,14 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                 if (it == mapStakeSpent.end()) {
                     return false;
                 }
-                if (it->second <= pindexPrev->nHeight) {
+                if (it->second < pindexPrev->nHeight) {
                     return false;
                 }
             }
         }
 
         // if this is on a fork
-        if (!chainActive.Contains(pindexPrev) && pindexPrev != NULL) {
+        if (!chainActive.Contains(pindexPrev) && last != NULL) {
 
             // start at the block we're adding on to
             CBlockIndex *last = pindexPrev;
@@ -3482,7 +3482,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                 }
 
                 // go to the parent block
-                last = pindexPrev->pprev;
+                last = last->pprev;
             }
         }
     }
